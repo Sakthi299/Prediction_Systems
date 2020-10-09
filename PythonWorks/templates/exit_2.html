@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Login Form Design</title>
+<style>
+.loginbox2{
+    width: 100%;
+    height: 300px;
+    background: #fa1d60b0;
+    color: #0011fffd;
+    top: 18%;
+    left: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(187, 13, 71, 0.685), 0 6px 20px 0 rgba(187, 13, 71, 0.685);
+    transform: translate(-50%,-50%);
+    padding: 70px 30px;
+}
+.input100 {
+  position:relative;
+  left:100px;
+  font-family: Raleway-SemiBold;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #1f0f01;
+  display: block;
+  width: 150%;
+  background: #c7c7c763;
+  height: 50px;
+  border-radius: 10px;
+}
+.input100:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+#t1
+{
+ top: 25%;
+ left: 15%;
+}
+#t2
+{
+ top: 67%;
+ left: 15%;
+}
+ table
+{
+    border-collapse: separate;
+    border-spacing: 0;
+    border-bottom: 2px solid white;
+    border-radius: 0.8em;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0px 20px 20px 0px grey;
+}
+th{
+padding:24px;
+text-align:left;
+border-bottom:2px solid #ddd;
+}
+td{
+padding:24px;
+text-align:left;
+border-bottom:2px solid #ddd;
+}
+#t1 tr:nth-child(even)
+{
+background-color:#f3f3f3;
+}
+#t1 tr:nth-child(odd)
+{
+background-color:rgb(202, 181, 135);
+}
+#t2 tr:nth-child(even)
+{
+background-color:#f3f3f3;
+font-size: 25px;
+font-weight: bold;
+}
+#t2 tr:nth-child(odd)
+{
+background-color:rgb(202, 181, 135);
+font-size: 20px;
+font-weight:600;
+}
+input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #daa40f;
+    color: #3a0a02;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffd900;
+    color: #000;
+    box-shadow: 10px 10px 5px grey;
+}
+.btn{
+    position:relative;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #f16b11e3;
+    color: #140450;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px; 
+    right:-210px;
+}
+.btn:hover{
+    cursor: pointer;
+    background: #008000;
+    color: #000; 
+}
+.sss{
+    font-size:20px;
+}
+.in{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    color:rgb(19, 11, 1);
+}
+.rgt{
+    float:right;
+}
+.avatar{
+    position:absolute;
+    border-radius:20%;
+    float:right;
+    top:10px;
+    right:20px;
+    height:45px;
+    width: 45px;
+    box-shadow: 5px 5px rgba(139, 105, 13, 0.692);
+}
+.avatar:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+</style>
+</head>
+
+<body>
+
+<div class="loginbox2">
+<h1><b>LOCAL PASSWORD MANAGER</b></h1>
+</div>
+<form action="/got/{{v}}" method="POST"> 
+<table style="width:1100px" id="t1">
+<tr>
+<th><span class="sss"><strong>Search Logins :</strong></span></th>
+<th></th>
+<th></th>
+<th><a href="/"><img src="{{ url_for('static', filename= 'images/signout.jpg')}}" class="avatar"></a></th>
+</tr>
+
+<tr>
+<td>
+<span class="in">Enter Credentials :</span>
+<br><br>
+<input class="input100" type="text" name="id" placeholder="username/domain name">
+</td>
+<td></td>
+<td></td>
+<td></td></tr>
+
+<tr>
+<td> 
+<input type="submit" name="" value="List Credential">   
+</td>
+<td></td>
+<td></td>
+<td><span class="rgt"><form action="/insert/{{v}}" method="POST"><input type="submit" value="Create new Login" formaction="/insert/{{v}}"></form></span></td>
+</tr>
+</table>
+</form>
+<!--################################################################################-->
+<table style="width:1100px" id="t2">
+<tr>
+<th><span class="sss"><strong>Logins & Passwords</strong><br></span></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+
+<tr>
+<td>Weblink<br></td>
+<td></td>
+<td>Username</td>
+<td>Password</td>
+</tr>
+
+<tr>
+<td>{{link}}</td>
+<td></td>
+<td>{{user}}</td>
+<td>{{keyvalue}}</td>
+</tr>
+</table>
+</body>
+</html>

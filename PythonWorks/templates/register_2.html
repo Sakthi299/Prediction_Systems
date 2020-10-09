@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Login Form Design</title>
+<style>
+#t1
+{
+ top: 20%;
+ left: 30%;
+}
+ table
+{
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.8em;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0px 20px 20px 0px grey;
+}
+.sss{
+    font-size:50px;
+}
+th{
+padding:9px;
+text-align:centre;
+}
+td{
+padding:5px;
+text-align:centre;
+}
+#t1 tr
+{
+background-color:rgb(202, 181, 135);
+}
+.out100
+{
+    position:relative;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 200px;
+    background: #daa40f;
+    color: #3a0a02;
+    font-size: 18px;
+    border-radius: 0px;
+    left:140px;
+}
+input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffd900;
+    color: #000;
+    box-shadow: 10px 10px 5px grey;
+}
+h2{
+    position:relative;
+    left:25px;
+    color:#1f0f01;
+}
+
+.input100 {
+  position:relative;
+  left:80px;
+  font-family: Raleway-SemiBold;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #1f0f01;
+  display: block;
+  width: 70%;
+  background: #c7c7c763;
+  height: 50px;
+  border-radius: 10px;
+}
+.input100:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+.fill{
+    position:relative;
+    left:120px;
+}
+.s{
+    position: relative;
+    font-size:20px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+<form action="/register" method="POST"> 
+<table style="width:500px" id="t1">
+<tr>
+<th class="sss"><strong>SIGN UP</strong></th>
+</tr>
+
+<tr>
+    <td>
+       {% if msg %}
+       <span class="s"><p>{{ msg }}</p></span> 
+        {% endif %}
+        <h2>User Name :</h2>
+        <input class="input100" type="text" name="id" placeholder="enter username">
+        </td>
+</tr>
+<tr>
+    <td><h2>Password :</h2>
+    <input class="input100" type="password" name="pwd" size="60" placeholder="enter password">
+    </td>
+</tr>
+<tr>
+    <td><h2>Confirm Password :</h2>
+    <input class="input100" type="password" name="repwd" size="60" placeholder="reenter password"><br>
+    </td>
+</tr>
+<tr>
+<td> 
+<input class="out100" type="submit" name="" value="Register">   
+<br><br>
+</td>
+</tr>
+
+</table>
+</form>
+
+</body>
+</html>

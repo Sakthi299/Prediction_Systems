@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prediction System</title>
+<style>
+    body{
+    margin-top:0px;
+    padding:350px;
+    background-image:url('/static/images/path.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.loginbox2{
+    width: 100%;
+    height: 300px;
+    background: #fa1d60b0;
+    color: #0011fffd;
+    top: 10%;
+    left: 80%;
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(187, 13, 71, 0.685), 0 6px 20px 0 rgba(187, 13, 71, 0.685);
+    transform: translate(-50%,-50%);
+    padding: 70px 30px;
+}
+#t1
+{
+ top: 25%;
+ left: 53%;
+}
+ table
+{
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 1em;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0px 20px 20px 0px grey;
+}
+.sss{
+    font-size:50px;
+}
+th{
+padding:18px;
+text-align:centre;
+}
+td{
+padding:15px;
+text-align:centre;
+}
+#t1 tr
+{
+background-color:rgb(202, 181, 135);
+}
+.out100
+{
+    position:relative;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 200px;
+    background: #daa40f;
+    color: #3a0a02;
+    font-size: 18px;
+    border-radius: 5px;
+    left:120px;
+}
+input[type="submit"]:hover
+{
+    cursor: pointer;
+    background:#ffd900;
+    color: #000;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.input100 {
+  position:relative;
+  left:70px;
+  font-family: Raleway-SemiBold;
+  font-size: 20px;
+  line-height: 1.2;
+  color:#1f0f01;
+  display: block;
+  width: 70%;
+  background: #c7c7c763;
+  height: 50px;
+  border-radius: 10px;
+}
+.input100:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+.fill{
+    position:relative;
+    left:110px;
+    font-size:18px;
+}
+.s{
+    position: relative;
+    font-size:20px;
+    text-align: center;
+}
+.avatar{
+    position: relative;
+    border-radius: 50%;
+    left:21px;
+    top:51px;
+    height:40px;
+    width: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+.avatar_2{
+    position: relative;
+    border-radius: 50%;
+    left:21px;
+    top:53px;
+    height:45px;
+    width: 45px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+.avatar:hover{
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.733), 0 7px 22px 0 rgba(0, 0, 0, 0.733);
+}
+.avatar_2:hover{
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.733), 0 7px 22px 0 rgba(0, 0, 0, 0.733);
+}
+a:hover{
+    font-weight: bold;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.13), 0 7px 22px 0 rgba(0, 0, 0, 0.096);
+}
+.sub{
+    position:absolute;
+    top:-15px;
+    left:40px;
+    font-weight: bolder;
+    font-size:100px;
+}
+.subtitle{
+    position:absolute;
+    top:300px;
+    left:50px;
+    font-weight: bold;
+    font-size:50px;
+}
+</style>
+</head>
+<body>
+    <h1 class="sub">Enhanced College Prediction System</h1>
+    <div class="subtitle"><h3>Vision to education</h3></div>
+        <form action="/allow" method="POST"> 
+            <table style="width:480px" id="t1">
+            <tr>
+            <th class="sss"><strong>LOGIN</strong>
+            </th>
+            </tr>
+            
+            <tr>
+                <td>  {% if msg %}
+                    <span class="s"><p>{{ msg }}</p></span> 
+                    {% endif %}
+                    <img src="{{ url_for('static', filename= 'images/user.png')}}" class="avatar">
+                    <input class="input100" type="text" name="id" placeholder="username">
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                <img src="{{ url_for('static', filename= 'images/passkey.png')}}" class="avatar_2">
+                <input class="input100" type="password" name="key" size="60" placeholder="password">
+                </td>
+            </tr>
+            <tr>
+            <td> 
+            <input class="out100" type="submit" name="" value="Login"> 
+            <br><br><br><span class="fill">Don't have an account?<a href="/signup"><b>Sign Up</b></a></span>  
+            </td>
+            </tr>
+            </table>
+            </form>
+
+</body>
+</html>

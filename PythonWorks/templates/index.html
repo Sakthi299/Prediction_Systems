@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>Prediction System</title>
+<style>
+body{
+    margin-top:0px;
+    padding:350px;
+    background-image:url('/static/images/path.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.topright {
+  position: absolute;
+  top: 45px;
+  right: 50px;
+}
+.topleft{
+    position: absolute;
+    top:50px;
+    left: 50px;
+    font-size: 200%;
+    text-shadow: 2px 2px #FF0000;
+    text-transform: capitalize;
+    font-weight: 1000;
+    font-style: italic;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+.loginbox{
+    width: 480px;
+    height: 490px;
+    background: rgba(22, 20, 20, 0.726);
+    color: #f3ecec;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0 10px 20px 0 rgba(248, 244, 244, 0.979);
+    transition: 0.1s;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    padding: 70px 30px;
+}
+.loginbox:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+p{
+    color:rgb(255, 255, 255);
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 28px;
+    color:#0019fdd3;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 90%;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #ffd900f3;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background:rgba(255, 255, 255, 0.432);
+    color:rgb(255, 0, 0);
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: rgb(48, 241, 129);
+    color: rgb(0,0,0);
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover
+{
+    color: #008000;
+}
+</style>
+</head>
+<body>
+    <div class="topleft">Vision to education</div>
+    <div class="topright">
+        <form action="/" method="POST">
+            <input type="image" src="{{ url_for('static', filename= 'images/menu.png')}}" alt="menu" width="30" height="30">          
+        </form></div>     
+    <div class="loginbox">
+      <img src="{{ url_for('static', filename= 'images/avatar.jpeg')}}" class="avatar">
+        <h1>Log in & Go</h1>
+        <form action="/det" method="POST">
+            <p>Register name</p>
+            <input type="text" name="name" placeholder="Enter Username">
+            <p>Email</p>
+            <input type="text" name="dom" placeholder="Enter Mail id">
+            <p>Password</p>
+            <input type="password" name="pass" placeholder="Enter Password">
+            <p>Confirm Password</p>
+            <input type="text" name="link" placeholder="Enter same Password">
+           <b> <input type="submit" value="SAVE CREDENTIALS"></b>
+        </form>
+    </div>
+</body>
+</html>

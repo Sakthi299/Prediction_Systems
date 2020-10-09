@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<style>
+#visible{
+    display:none;
+}
+#plain{
+    display:block;
+}
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div id="plain" class="w3-panel w3-card-4">
+<h2><centre>LOCAL PASSWORD MANAGER</centre></h2>
+<form action="/view" method="post">
+Search Key: <input type="text" name="id">
+<input type="submit" value="List Credentials" ondblclick="setvisible()">
+</div>
+</form>
+<p id="visible" ><div class="w3-panel w3-card-4">
+    <h3>CREDENTIALS</h3>  
+    <table border=3>
+        <thead>  
+            <td>ID</td>  
+            <td>Name</td>  
+        </thead>   
+        {% for row in rows %}  
+          
+            <tr>  
+                <td>{{row["id"]}}</td>  
+                <td>{{row["name"]}}</td>    
+            </tr>  
+        {% endfor %}  
+    </table>  
+    <br>  
+</div></p>
+
+<script>
+function setvisible(){
+    document.getElementById("visible").style.display="block";
+}
+</script>
+</body>
+</html>

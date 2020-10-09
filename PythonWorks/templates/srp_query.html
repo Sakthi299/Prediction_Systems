@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Prediction System</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+.loginbox2{
+    width: 100%;
+    height: 360px;
+    background: #df4161b0;
+    color: #0011fffd;
+    top: 19%;
+    left: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(187, 13, 71, 0.685), 0 6px 20px 0 rgba(187, 13, 71, 0.685);
+    transform: translate(-50%,-50%);
+    padding: 70px 30px;
+}
+.input100 {
+  position:relative;
+  left:170px;
+  top:-40px;
+  font-family: Raleway-SemiBold;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #1f0f01;
+  display: block;
+  width: 100%;
+  background: #c7c7c763;
+  height: 50px;
+  border-radius: 10px;
+}
+.input100:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    width:100px;
+    background: #daa40f;
+    color: #3a0a02;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffd900;
+    color: #000;
+    box-shadow: 10px 10px 5px grey;
+}
+.btn{
+    position: relative;
+    left:20px;
+}
+.sss{
+    font-size:20px;
+}
+.in{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color:#1f0f01;
+}
+.inn{
+    font-size: 20px;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+    color:#1f0f01;
+    right:40px;
+}
+.inl{
+    position: relative;
+    float:left;
+    left:60px;
+}
+.inr{
+    position: relative;
+    float:right;
+    right:250px;
+}
+.avatar{
+    float:right;
+    height:40px;
+    width: 40px;
+    border-radius:30%;
+    box-shadow: 5px 5px rgba(139, 105, 13, 0.692);
+}
+.avatar:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0 rgba(0, 0, 0, 0.733);
+}
+#set{
+    position:relative;
+    left:20px;
+    top:100px;
+}
+</style>
+</head>
+
+<body>
+    
+<div class="loginbox2">
+    <h1><b>Enhanced College Prediction System</b></h1>
+</div>
+
+    <div class="container" id="set">
+        <div class="card">
+          <div class="card-header">
+            <span class="sss"><strong>Get College Details</strong></span>
+            <a href="/returnlist/{{v}}"><img src="{{ url_for('static', filename= 'images/return.png')}}" class="avatar"></a>
+          </div>
+          <div class="card-body">
+            <form action="/got/{{v}}" method="POST"> 
+            <div class="inl">
+            <span class="in">Enter Year &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</span>
+            <input class="input100" type="text" name="web" placeholder="2018">
+            <br>
+            <span class="in">Enter Cut_Off &nbsp:</span>
+            <input class="input100" type="text" name="user" placeholder="185.50">
+            </div>
+            <div class="inr">
+            <span class="inn">Enter Category &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</span>
+                <input class="input100" type="text" name="dom" placeholder="OC">
+            <br>
+            <span class="inn">Enter Branch_code :</span>
+                <input class="input100" type="password" name="key" placeholder="AI">
+            </div>
+          </div> 
+        <div class="card-footer">
+            <input class="btn" type="submit" name="" value="LIST">
+            </form>
+        </div>
+        </div>
+      </div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+ed.
+typedef DrawerCallback = void Function(bool isOpened);
+
+/// Provides interactive behavior for [Drawer] widgets.
+///
+/// Rarely used directly. Drawer controllers are typically created automatically
+/// by [Scaffold] widgets.
+///
+/// The drawer controller provides the ability to open and close a drawer, either
+/// via an animation or via user interaction. When closed, the drawer collapses
+/// to a translucent gesture detector that can be used to listen for edge
+/// swipes.
+///
+/// See also:
+///
+///  * [Drawer], a container with the default width of a drawer.
+///  * [Scaffold.drawer], the [Scaffold] slot for showing a drawer.
+class DrawerController extends StatefulWidget {
+  /// Creates a controller for a [Drawer].
+  ///
+  /// Rarely used directly.
+  ///
+  /// The [child] argument must not be null and is typically a [Drawer].
+  const DrawerController({
+    GlobalKey key,
+    @required this.child,
+    @required this.alignment,
+    this.drawerCallback,
+    this.dragStartBehavior = DragStartBehavior.start,
+    this.scrimColor,
+    this.edgeDragWidth,
+    this.enableOpenDragGesture = true,
+  }) : assert(child != null),
+       assert(dragStartBehavior != null),
+       assert(alignment != null),
+       super(key: key);
+
+  /// The widget below this widget in the tree.
+  ///
+  /// Typically a [Drawer].
+  final Widget child;
+
+  /// The alignment of the [Drawer].
+  ///
+  /// This controls the direction in which the user should swipe to open and
+  /// close the drawer.
+  final DrawerAlignment alignment;
+
+  /// Optional callback that is called when a [Drawer] is opened or closed.
+  final DrawerCallback drawerCallback;
+
+  /// {@template flutter.material.drawer.dragStartBehavior}
+  /// Determines the way that drag start behavior is handled.
+  ///
+  /// If set to [DragStartBehavior.start], the drag behavior used for opening
+  /// and closing a drawer will begin upon the detection of a drag gesture. If
+  /// set to [DragStartBehavior.down] it will begin when a down event is first
+  /// detected.
+  ///
+  /// In general, setting this to [DragStartBehavior.start] will make drag
+  /// animation smoother and setting it to [DragStartBehavior.down] will make
+  /// drag behavior feel slightly more reactive.
+  ///
+  /// By default, the drag start behavior is [DragStartBehavior.start].
+  ///
+  /// See also:
+  ///
+  ///  * [DragGestureRecognizer.dragStartBehavior], which gives an example for
+  ///    the different behaviors.
+  ///
+  /// {@endtemplate}
+  final DragStartBehavior dragStartBehavior;
+
+  /// The color to use for the scrim that obscures primary content while a drawer is open.
+  ///
+  /// By default, the color used is [Colors.black54]
+  final Color scrimColor;
+
+  /// Determines if the [Drawer] can be opened with a drag gesture.
+  ///
+  /// By default, the drag gesture is enabled.
+  final bool enableOpenDragGesture;
+
+  /// The width of the area within which a horizontal swipe will open the
+  /// drawer.
+  ///
+  /// By default, the value used is 20.0 added to the padding edge of
+  /// `MediaQuery.of(context).padding` that corresponds to [alignment].
+  /// This ensures that the drag area for notched devices is not obscured. For
+  /// example, if [alignment] is set to [DrawerAlignment.start] and
+  /// `TextDirection.of(context)` is set to [TextDirection.ltr],
+  /// 20.0 will be added to `MediaQuery.
