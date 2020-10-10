@@ -2,8 +2,19 @@
 from flask import Flask,render_template,request,redirect,url_for,session
 from flask_pymongo import PyMongo
 from cryptography.fernet import Fernet
+import pickle
+import numpy as np
+import pandas as pd
 key=Fernet.generate_key()
 salt=key.decode('utf8')
+ss = pd.read_csv("2018_FINISH2.csv") 
+e=12
+x=ss.iloc[:,[e]].values
+y=ss.iloc[:,[1,4]].values
+from sklearn.preprocessing import StandardScaler
+st_x=StandardScaler()
+x=st_x.fit_transform(x)
+model = pickle.load(open('college.pkl','rb'))
 
 try:
   app=Flask(__name__)
@@ -13,12 +24,23 @@ try:
   @app.route("/",methods=["POST","GET"])
   def log():
     return render_template("srp_home.html")
+
+  @app.route("/switch1/<v>",methods=["POST","GET"])
+  def switch1(v):
+    return render_template("srp_query2.html",v=v)
+  
+  @app.route("/switch2/<v>",methods=["POST","GET"])
+  def switch2(v):
+    return render_template("srp_query.html",v=v)
+  
   @app.route("/signup",methods=["POST","GET"])
   def signup():
     return render_template("srp_register.html")
+  
   @app.route("/returnlist/<v>",methods=["POST","GET"])
   def returnlist(v):
     return render_template("srp_home.html",v=v)
+  
   @app.route("/register",methods=["POST","GET"])
   def reg():
     message=''
@@ -71,7 +93,7 @@ try:
         decryptpw=crypter.decrypt(s)
         returned=decryptpw.decode('utf8')
         if returned == pas:
-          return render_template("srp_query.html",v=u)
+          return render_template("indexpage.html",v=u)
         else:
           message="Invalid Password"  
           return render_template("srp_home.html",msg=message) 
@@ -94,6 +116,15 @@ try:
         return render_template("view_2.html",msg="No Records Found !!!",user=" ",keyvalue=" ",link=" ",v=v)
 
       return render_template("view_2.html",user=ocuser)
+
+  @app.route("/nextform/<v>",methods=["POST","GET"])
+  def switch(v):
+    if request.method == "POST":
+      p=request.form["web"]
+      arr=np.array([[p]])
+      arr=st_x.transform(arr)
+      pred=model.predict(arr)
+    return render_template("srp_query_result.html",v=v,data=pred)
 
 except Exception as e:
   print(e)

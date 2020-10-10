@@ -118,10 +118,10 @@ input[type="submit"]:hover
             <a href="/returnlist/{{v}}"><img src="{{ url_for('static', filename= 'images/return.png')}}" class="avatar"></a>
           </div>
           <div class="card-body">
-            <form action="/got/{{v}}" method="POST"> 
+            <form action="/nextform/{{v}}" method="POST"> 
             <div class="inl">
-            <span class="in">Enter Year &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</span>
-            <input class="input100" type="text" name="web" placeholder="2018">
+            <span class="in">Enter Rank &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</span>
+            <input class="input100" type="text" name="web" placeholder="1300">
             <br>
             <span class="in">Enter Cut_Off &nbsp:</span>
             <input class="input100" type="text" name="user" placeholder="185.50">
@@ -131,7 +131,7 @@ input[type="submit"]:hover
                 <input class="input100" type="text" name="dom" placeholder="OC">
             <br>
             <span class="inn">Enter Branch_code :</span>
-                <input class="input100" type="password" name="key" placeholder="AI">
+                <input class="input100" type="text" name="key" placeholder="AI">
             </div>
           </div> 
         <div class="card-footer">
